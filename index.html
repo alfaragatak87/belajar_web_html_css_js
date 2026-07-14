@@ -1300,6 +1300,10 @@
         border-color: rgba(255, 255, 255, 0.3);
       }
     
+    
+      .cm-indent-guide {
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+      }
     </style>
   </head>
   <body>
@@ -1476,15 +1480,15 @@
           desc: "Pahami konsep HTML, CSS, dan JS pakai analogi tubuh manusia.",
           playgroundCode: `<!DOCTYPE html> <!-- Memberitahu browser ini file HTML5 -->
 <html> <!-- Membuka dokumen HTML -->
-<head> <!-- Bagian kepala (pengaturan di balik layar) -->
-<title>Page Title</title> <!-- Judul yang muncul di tab browser -->
-</head>
-<body style="background-color:lightblue;"> <!-- Bagian tubuh (isi utama yang terlihat) -->
+  <head> <!-- Bagian kepala (pengaturan di balik layar) -->
+    <title>Page Title</title> <!-- Judul yang muncul di tab browser -->
+  </head>
+  <body style="background-color:lightblue;"> <!-- Bagian tubuh (isi utama yang terlihat) -->
 
-<h1 style="text-align:center;color:white;">This is a Heading</h1> <!-- Judul besar halaman -->
-<p>This is a paragraph.</p> <!-- Paragraf biasa -->
+    <h1 style="text-align:center;color:white;">This is a Heading</h1> <!-- Judul besar halaman -->
+    <p>This is a paragraph.</p> <!-- Paragraf biasa -->
 
-</body> <!-- Menutup bagian tubuh -->
+  </body> <!-- Menutup bagian tubuh -->
 </html>`,
           content: `
 
@@ -1580,14 +1584,14 @@
           desc: "Bikin judul gede dan teks panjang.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <!-- Coba ubah tulisan di bawah ini! -->
   <h1>Ini Judul Utama (H1)</h1>
   <h2>Ini Sub-judul (H2)</h2>
   <h3>Lebih kecil lagi (H3)</h3>
   
   <p>Ini adalah paragraf. Kamu bisa nulis cerita panjang lebar di sini. HTML akan menampilkannya sebagai teks biasa.</p>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1628,14 +1632,14 @@
           desc: "Bikin teks tebal, miring, dan bergaris bawah.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <p>Teks ini <b>TEBAL</b>.</p>
   <p>Teks ini <i>MIRING</i>.</p>
   <p>Teks ini <u>DIGARISBAWAHI</u>.</p>
   
   <p>Kalau yang ini <strong>TEBAL & PENTING</strong> menurut Google.</p>
   <p>Kalau ini <em>MIRING & DITEKANKAN</em>.</p>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1684,14 +1688,14 @@
           desc: "Bikin jalan pintas dan nampilin foto.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Coba Klik Link Ini!</h2>
   <a href="https://www.google.com" target="_blank">Pergi ke Google</a>
   
   <h2>Menampilkan Gambar</h2>
   <!-- Coba ganti link gambarnya dengan fotomu sendiri! -->
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" width="150" alt="Logo HTML5">
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1740,7 +1744,7 @@
           desc: "Bikin daftar belanja atau poin-poin berurutan.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Daftar Belanja (Unordered / Titik)</h2>
   <ul>
     <li>Beras</li>
@@ -1754,7 +1758,7 @@
     <li>Si Hebat</li>
     <li>Si Lumayan</li>
   </ol>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1807,7 +1811,7 @@
           desc: "Memberi warna dan gaya pada kerangka HTML.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <style>
     /* Ini adalah CSS! */
     body {
@@ -1824,11 +1828,11 @@
       font-size: 20px;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <h1>Halo, Aku Pakai Baju CSS!</h1>
   <p>Sekarang tubuhku nggak pucat lagi.</p>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1880,7 +1884,7 @@
           desc: "Cara memilih elemen mana yang mau dihias.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <style>
     /* . untuk CLASS (Seragam geng) */
     .geng-merah {
@@ -1895,13 +1899,13 @@
       font-size: 24px;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <p class="geng-merah">Anak buah 1</p>
   <p class="geng-merah">Anak buah 2</p>
   <p id="bos-besar">Aku sang Bos Besar!</p>
   <p class="geng-merah">Anak buah 3</p>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -1954,7 +1958,7 @@
           desc: "Margin, Border, Padding, dan Content.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <style>
     .kotak {
       background-color: lightgreen;
@@ -1973,11 +1977,11 @@
       margin: 30px;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <div class="kotak">Halo, aku kotak yang punya Padding dan Margin!</div>
   <div class="kotak">Aku kotak kedua. Liat kan ada jarak di antara kita? Itu namanya Margin!</div>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2023,7 +2027,7 @@
           desc: "Ubah jenis huruf, ukuran, dan perataan teks.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <style>
     h1 {
       font-family: 'Arial', sans-serif;
@@ -2039,11 +2043,11 @@
       text-align: justify; /* Rata kanan kiri */
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <h1>Gaya Teks</h1>
   <p>Manusia web kita sekarang sudah bisa ganti gaya rambut! Maksudnya, kita bisa ganti jenis font, ukuran, ketebalan, sampai jarak antar huruf. CSS bikin teks yang membosankan jadi kayak poster film bioskop. Keren kan?</p>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2094,7 +2098,7 @@
           desc: "Bikin elemen berbaris rapi secara otomatis.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <style>
     .barisan {
       /* Ini kuncinya! Bikin isi di dalamnya jadi sejajar (baris) */
@@ -2114,15 +2118,15 @@
       border-radius: 8px;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <h2>Flexbox: Susun Barisan!</h2>
   <div class="barisan">
     <div class="orang">Anton</div>
     <div class="orang">Budi</div>
     <div class="orang">Caca</div>
   </div>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2180,7 +2184,7 @@
           desc: "Bikin web jadi pintar, bisa mikir dan merespon.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h1>Cek Otak Manusia Web!</h1>
   <button onclick="sapaUser()" style="padding:10px 20px; font-size:16px;">Klik Buat Nyapa!</button>
   
@@ -2194,7 +2198,7 @@
       console.log("Tombolnya abis diklik bos!");
     }
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2249,7 +2253,7 @@
           desc: "Menyimpan data di dalam otak (memori).",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Cek Ingatanku</h2>
   <p id="tampil-data"></p>
 
@@ -2266,7 +2270,7 @@
     document.getElementById("tampil-data").innerHTML = 
       nama + " sekarang umurnya " + umur + " tahun.";
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2315,7 +2319,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
           desc: "Bedanya teks, angka, dan logika benar-salah.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Cek Tipe Data di Console (F12)</h2>
   
   <script>
@@ -2333,7 +2337,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
     console.log("Skor Akhir:", skorAkhir);
     console.log("Status Lulus:", sudahLulus);
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2378,7 +2382,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
           desc: "Bikin perintah-perintah yang bisa dipakai berulang.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Panggil Sang Koki!</h2>
   <button onclick="bikinKopi('Hitam')">Bikin Kopi Hitam</button>
   <button onclick="bikinKopi('Susu')">Bikin Kopi Susu</button>
@@ -2393,7 +2397,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
       document.getElementById("hasil-dapur").innerHTML = proses;
     }
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2440,7 +2444,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
           desc: "Bikin otak manusia web bisa memilih kondisi.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2>Cek Kelulusan</h2>
   <button onclick="cekNilai(90)">Dapat Nilai 90</button>
   <button onclick="cekNilai(60)">Dapat Nilai 60</button>
@@ -2455,7 +2459,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
       }
     }
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -2507,7 +2511,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
           desc: "Ubah isi dan gaya HTML langsung lewat JS.",
           playgroundCode: `<!DOCTYPE html>
 <html>
-<body>
+  <body>
   <h2 id="target-teks">Aku Tulisan Biasa</h2>
   <button onclick="ubahWujud()">Mantra Ajaib!</button>
   
@@ -2525,7 +2529,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
       elemen.style.textShadow = "2px 2px 5px black";
     }
   <\\/script>
-</body>
+  </body>
 </html>`,
           content: `
 <div class="lc-exp">
@@ -3381,7 +3385,24 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         overlay.style.display = ""; // Clear any inline display:none from previous close
         overlay.classList.add("show");
 
+        
+        if (!CodeMirror.modes.hasOwnProperty("indent-guides")) {
+          CodeMirror.defineMode("indent-guides", function() {
+            return {
+              token: function(stream) {
+                let leadingSpaces = stream.string.match(/^ */)[0].length;
+                if (stream.pos < leadingSpaces) {
+                  stream.match(/^ {1,2}/);
+                  return "indent-guide";
+                }
+                stream.skipToEnd();
+                return null;
+              }
+            };
+          });
+        }
         if (!pgEditor) {
+
           pgEditor = CodeMirror.fromTextArea(
             document.getElementById("pgCode"),
             {
@@ -3391,7 +3412,10 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
               gutters: ["CodeMirror-lint-markers"],
               lint: true,
             },
+
           );
+          pgEditor.addOverlay("indent-guides");
+
           pgEditor.on("change", () => {
             clearTimeout(pgEditor.runTimeout);
             pgEditor.runTimeout = setTimeout(runPlayground, 400);
