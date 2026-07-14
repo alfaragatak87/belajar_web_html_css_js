@@ -303,10 +303,7 @@
           var(--card) 100%
         );
       }
-      .lcard.status-study,
-      .lcard.status-quiz {
-        /* cleaner glow handled below */
-      }
+
       .lcard.status-study.html-active {
         border-color: rgba(249, 115, 22, 0.4);
         box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
@@ -455,6 +452,7 @@
         color: var(--text);
       }
       .lc-code {
+        position: relative; /* added */
         background: #070910;
         border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 10px;
@@ -1281,6 +1279,27 @@
           line-height: 12px;
         }
       }
+    
+      .btn-play {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-play:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    
     </style>
   </head>
   <body>
@@ -1527,7 +1546,7 @@
 
             <span class="t">&lt;/body&gt;</span>
             <span class="t">&lt;/html&gt;</span></pre>
-            <button onclick="openPlayground(LESSONS.find(l=>l.id==='h1').playgroundCode)" style="background:var(--html); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Coba Kode W3Schools Ini (Playground)</button>
+            <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h1').playgroundCode)" title="⚡ Coba Kode W3Schools Ini (Playground)">⚡ Coba</button>
             </div>
 
           `,
@@ -1582,7 +1601,7 @@
   <pre class="code-pre"><span class="t">&lt;h1&gt;</span>Aku Judul Paling Gede!<span class="t">&lt;/h1&gt;</span>
 <span class="t">&lt;h2&gt;</span>Aku Adiknya H1<span class="t">&lt;/h2&gt;</span>
 <span class="t">&lt;p&gt;</span>Kalau aku cuma teks paragraf biasa buat cerita panjang.<span class="t">&lt;/p&gt;</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='h2').playgroundCode)" style="background:var(--html); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Coba Bikin Judul (Playground)</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h2').playgroundCode)" title="⚡ Coba Bikin Judul (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1633,7 +1652,7 @@
   <div class="code-lbl">📝 Format Teks</div>
   <pre class="code-pre"><span class="t">&lt;p&gt;</span>Halo, nama saya <span class="t">&lt;b&gt;</span>Budi<span class="t">&lt;/b&gt;</span>!<span class="t">&lt;/p&gt;</span>
 <span class="t">&lt;p&gt;</span>Saya <span class="t">&lt;i&gt;</span>sangat<span class="t">&lt;/i&gt;</span> senang belajar coding.<span class="t">&lt;/p&gt;</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='h3').playgroundCode)" style="background:var(--html); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Latihan Cetak Tebal (Playground)</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h3').playgroundCode)" title="⚡ Latihan Cetak Tebal (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1689,7 +1708,7 @@
 
 <span class="c">&lt;!-- Nampilin Gambar Kucing --&gt;</span>
 <span class="t">&lt;img</span> <span class="a">src=</span><span class="n">"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80"</span> <span class="a">alt=</span><span class="n">"Foto Kucing"</span> <span class="a">width=</span><span class="n">"200"</span><span class="t">&gt;</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='h4').playgroundCode)" style="background:var(--html); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Eksperimen Link & Gambar</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h4').playgroundCode)" title="⚡ Eksperimen Link & Gambar">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1757,7 +1776,7 @@
   <span class="t">&lt;li&gt;</span>Bangun Tidur<span class="t">&lt;/li&gt;</span>
   <span class="t">&lt;li&gt;</span>Mandi<span class="t">&lt;/li&gt;</span>
 <span class="t">&lt;/ol&gt;</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='h5').playgroundCode)" style="background:var(--html); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Bikin Daftar Belanja</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h5').playgroundCode)" title="⚡ Bikin Daftar Belanja">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1829,7 +1848,7 @@
   <span class="a">color</span>: <span class="n">blue</span>; <span class="c">/* Value: Jadi warna apa? (Biru) */</span>
   <span class="a">background-color</span>: <span class="n">yellow</span>;
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='c1').playgroundCode)" style="background:var(--css); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Eksperimen Ganti Baju (Playground)</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c1').playgroundCode)" title="⚡ Eksperimen Ganti Baju (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1903,7 +1922,7 @@
 <span class="t">#spesial</span> {
   <span class="a">color</span>: <span class="n">purple</span>;
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='c2').playgroundCode)" style="background:var(--css); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Coba Pakaikan Seragam</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c2').playgroundCode)" title="⚡ Coba Pakaikan Seragam">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1977,7 +1996,7 @@
   <span class="a">border</span>: <span class="n">2px solid black</span>; <span class="c">/* Kasih garis luar */</span>
   <span class="a">margin</span>: <span class="n">50px</span>; <span class="c">/* Jauhin dari orang lain */</span>
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='c3').playgroundCode)" style="background:var(--css); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Main-main dengan Box Model</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c3').playgroundCode)" title="⚡ Main-main dengan Box Model">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2043,7 +2062,7 @@
   <span class="a">font-size</span>: <span class="n">24px</span>;
   <span class="a">text-align</span>: <span class="n">center</span>;
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='c4').playgroundCode)" style="background:var(--css); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Eksperimen Gaya Font</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c4').playgroundCode)" title="⚡ Eksperimen Gaya Font">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2120,7 +2139,7 @@
   <span class="a">justify-content</span>: <span class="n">center</span>; <span class="c">/* Semua anak ke tengah! */</span>
   <span class="a">gap</span>: <span class="n">10px</span>; <span class="c">/* Jarak antar anak 10px */</span>
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='c5').playgroundCode)" style="background:var(--css); color:#fff; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Coba Posisikan Barisan</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c5').playgroundCode)" title="⚡ Coba Posisikan Barisan">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2198,7 +2217,7 @@
   <span class="c">// Nyatet diam-diam buat programmer</span>
   <span class="k">console.log</span>(<span class="n">"JS berhasil jalan."</span>);
 <span class="t">&lt;/script&gt;</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j1').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Buktikan Sendiri (Playground)</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j1').playgroundCode)" title="⚡ Buktikan Sendiri (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2264,7 +2283,7 @@ saldo = <span class="n">10000</span>; <span class="c">// Boleh! Sah-sah saja ber
 
 <span class="k">const</span> phi = <span class="n">3.14</span>;
 phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karena const nggak bisa diubah!</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j2').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Uji Coba Variabel</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j2').playgroundCode)" title="⚡ Uji Coba Variabel">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2332,7 +2351,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 
 <span class="c">// AWAS TERTIPU!</span>
 <span class="k">let</span> angka = <span class="n">"10"</span>; <span class="c">// Ini String! Karena pakai kutip.</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j3').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Mainan Tipe Data</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j3').playgroundCode)" title="⚡ Mainan Tipe Data">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2394,7 +2413,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 <span class="c">// Memanggil fungsinya buat kerja</span>
 <span class="k">let</span> nilaiku = <span class="t">tambahAngka</span>(10, 5);
 <span class="c">// nilaiku sekarang isinya 15</span></pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j4').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Jadi Koki Function</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j4').playgroundCode)" title="⚡ Jadi Koki Function">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2456,7 +2475,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
   <span class="c">// Kalau uangnya KESIKITAN (kondisi if salah), masuk sini!</span>
   <span class="k">console.log</span>(<span class="n">"Makan cilok aja bro..."</span>);
 }</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j5').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Tes Keputusan Otak</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j5').playgroundCode)" title="⚡ Tes Keputusan Otak">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2526,7 +2545,7 @@ h1.<span class="a">innerHTML</span> = <span class="n">"Teksnya Berubah Bos!"</sp
 
 <span class="c">// Ubah bajunya / CSS (style)</span>
 h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
-  <button onclick="openPlayground(LESSONS.find(l=>l.id==='j6').playgroundCode)" style="background:var(--js); color:#111; border:none; padding:12px 24px; border-radius:8px; font-weight:900; font-size:1.05rem; cursor:pointer; margin-top:12px;">⚡ Main Sihir DOM (Playground)</button>
+  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j6').playgroundCode)" title="⚡ Main Sihir DOM (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
