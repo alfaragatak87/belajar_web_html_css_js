@@ -1,27 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- htmlhint style-disabled:false -->
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎮 Web Dev Quest – Belajar HTML, CSS & JS</title>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>🎮 Web Dev Quest – Belajar HTML, CSS &amp; JS</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
       rel="stylesheet"
-    />
+    >
 
     <!-- CodeMirror CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css"
-    />
+    >
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material-ocean.min.css"
-    />
+    >
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/lint.min.css"
-    />
+    >
 
     <style>
       /* Playground CodeMirror override */
@@ -856,6 +857,7 @@
         margin-bottom: 8px;
       }
       .lu-title {
+        color: var(--green);
         font-size: 2rem;
         font-weight: 900;
         margin-bottom: 4px;
@@ -1304,7 +1306,52 @@
       .cm-indent-guide {
         border-left: 1px solid rgba(255, 255, 255, 0.15);
       }
+
+      /* Extracted Classes */
+      .pg-challenge-box {
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 6px 12px;
+        border-radius: 6px;
+        align-items: center;
+        gap: 8px;
+      }
+      .pg-check-btn {
+        display: none;
+        background: var(--green);
+        color: #111;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .pg-close-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s;
+      }
+      .pg-challenge-text {
+        color: #fff;
+        font-weight: bold;
+        font-size: 0.85rem;
+      }
+
+      .pg-header-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
     </style>
+
+
   </head>
   <body>
     <!-- ── GAME HEADER ── -->
@@ -1321,7 +1368,7 @@
       </div>
       <div class="xp-bar-wrap">
         <div class="xp-bar-bg">
-          <div class="xp-bar-fill" id="xp-bar" style="width: 0%"></div>
+          <div class="xp-bar-fill" id="xp-bar"></div>
         </div>
         <div class="xp-bar-label" id="xp-label">0% selesai</div>
       </div>
@@ -1329,17 +1376,17 @@
 
     <!-- ── SECTION TABS ── -->
     <nav class="sec-tabs" id="secTabs">
-      <button class="stab on-html" onclick="showSection('html')" id="stab-html">
+      <button type="button" class="stab on-html" onclick="showSection('html')" id="stab-html">
         🏗️ HTML <span class="stab-count" id="stab-html-count">(0/5)</span>
       </button>
-      <button
+      <button type="button"
         class="stab tab-locked"
         onclick="showSection('css')"
         id="stab-css"
       >
         🔒 CSS <span class="stab-count" id="stab-css-count">(0/4)</span>
       </button>
-      <button class="stab tab-locked" onclick="showSection('js')" id="stab-js">
+      <button type="button" class="stab tab-locked" onclick="showSection('js')" id="stab-js">
         🔒 JS <span class="stab-count" id="stab-js-count">(0/4)</span>
       </button>
     </nav>
@@ -1352,7 +1399,7 @@
       <div class="levelup-box">
         <div class="lu-stars" id="lu-stars">⭐⭐⭐</div>
         <div class="lu-icon" id="lu-icon">🏗️</div>
-        <div class="lu-title" id="lu-title" style="color: var(--green)">
+        <div class="lu-title" id="lu-title">
           LEVEL UP!
         </div>
         <div class="lu-lesson" id="lu-lesson">Apa itu HTML?</div>
@@ -1360,7 +1407,7 @@
         <div class="lu-unlock" id="lu-unlock">
           🔓 Pelajaran berikutnya terbuka!
         </div>
-        <button class="lu-continue" id="lu-continue" onclick="closeLevelUp()">
+        <button type="button" class="lu-continue" id="lu-continue" onclick="closeLevelUp()">
           Lanjutkan! →
         </button>
       </div>
@@ -1371,57 +1418,18 @@
       <div class="pg-modal">
         <div class="pg-header">
           <h2>💻 <span id="pgHeaderTitle">Code Playground</span></h2>
-          <div style="display: flex; gap: 12px; align-items: center">
-            <div
-              id="pgChallengeBox"
-              style="
-                display: none;
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                padding: 6px 12px;
-                border-radius: 6px;
-                align-items: center;
-                gap: 8px;
-              "
-            >
+          <div class="pg-header-actions">
+            <div id="pgChallengeBox" class="pg-challenge-box">
               <span>🎯</span>
               <span
                 id="pgChallengeText"
-                style="color: #fff; font-weight: bold; font-size: 0.85rem"
+                class="pg-challenge-text"
               ></span>
             </div>
-            <button
-              id="pgCheckBtn"
-              onclick="checkChallenge()"
-              style="
-                display: none;
-                background: var(--green);
-                color: #111;
-                border: none;
-                padding: 8px 16px;
-                border-radius: 6px;
-                font-weight: bold;
-                cursor: pointer;
-              "
-            >
+            <button type="button" id="pgCheckBtn" class="pg-check-btn" onclick="checkChallenge()">
               Cek Jawaban →
             </button>
-            <button
-              onclick="closePlayground()"
-              style="
-                background: rgba(255, 255, 255, 0.1);
-                border: none;
-                color: #fff;
-                border-radius: 6px;
-                padding: 6px 16px;
-                font-size: 1rem;
-                cursor: pointer;
-                font-weight: bold;
-                transition: all 0.2s;
-              "
-              onmouseover="this.style.background = 'rgba(239, 68, 68, 0.8)'"
-              onmouseout="this.style.background = 'rgba(255,255,255,0.1)'"
-            >
+            <button type="button" class="pg-close-btn" onclick="closePlayground()">
               Tutup
             </button>
           </div>
@@ -1448,7 +1456,7 @@
                 🔒 <span id="pgBrowserTitle">localhost:3000</span>
               </div>
             </div>
-            <iframe id="pgResult" class="pg-iframe"></iframe>
+            <iframe id="pgResult" class="pg-iframe" title="Result"></iframe>
           </div>
         </div>
       </div>
@@ -1550,7 +1558,7 @@
 
             <span class="t">&lt;/body&gt;</span>
             <span class="t">&lt;/html&gt;</span></pre>
-            <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h1').playgroundCode)" title="⚡ Coba Kode W3Schools Ini (Playground)">⚡ Coba</button>
+            <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h1').playgroundCode)" title="⚡ Coba Kode W3Schools Ini (Playground)">⚡ Coba</button>
             </div>
 
           `,
@@ -1605,7 +1613,7 @@
   <pre class="code-pre"><span class="t">&lt;h1&gt;</span>Aku Judul Paling Gede!<span class="t">&lt;/h1&gt;</span>
 <span class="t">&lt;h2&gt;</span>Aku Adiknya H1<span class="t">&lt;/h2&gt;</span>
 <span class="t">&lt;p&gt;</span>Kalau aku cuma teks paragraf biasa buat cerita panjang.<span class="t">&lt;/p&gt;</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h2').playgroundCode)" title="⚡ Coba Bikin Judul (Playground)">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h2').playgroundCode)" title="⚡ Coba Bikin Judul (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1656,7 +1664,7 @@
   <div class="code-lbl">📝 Format Teks</div>
   <pre class="code-pre"><span class="t">&lt;p&gt;</span>Halo, nama saya <span class="t">&lt;b&gt;</span>Budi<span class="t">&lt;/b&gt;</span>!<span class="t">&lt;/p&gt;</span>
 <span class="t">&lt;p&gt;</span>Saya <span class="t">&lt;i&gt;</span>sangat<span class="t">&lt;/i&gt;</span> senang belajar coding.<span class="t">&lt;/p&gt;</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h3').playgroundCode)" title="⚡ Latihan Cetak Tebal (Playground)">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h3').playgroundCode)" title="⚡ Latihan Cetak Tebal (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1712,7 +1720,7 @@
 
 <span class="c">&lt;!-- Nampilin Gambar Kucing --&gt;</span>
 <span class="t">&lt;img</span> <span class="a">src=</span><span class="n">"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80"</span> <span class="a">alt=</span><span class="n">"Foto Kucing"</span> <span class="a">width=</span><span class="n">"200"</span><span class="t">&gt;</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h4').playgroundCode)" title="⚡ Eksperimen Link & Gambar">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h4').playgroundCode)" title="⚡ Eksperimen Link & Gambar">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1780,7 +1788,7 @@
   <span class="t">&lt;li&gt;</span>Bangun Tidur<span class="t">&lt;/li&gt;</span>
   <span class="t">&lt;li&gt;</span>Mandi<span class="t">&lt;/li&gt;</span>
 <span class="t">&lt;/ol&gt;</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h5').playgroundCode)" title="⚡ Bikin Daftar Belanja">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='h5').playgroundCode)" title="⚡ Bikin Daftar Belanja">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1852,7 +1860,7 @@
   <span class="a">color</span>: <span class="n">blue</span>; <span class="c">/* Value: Jadi warna apa? (Biru) */</span>
   <span class="a">background-color</span>: <span class="n">yellow</span>;
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c1').playgroundCode)" title="⚡ Eksperimen Ganti Baju (Playground)">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c1').playgroundCode)" title="⚡ Eksperimen Ganti Baju (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -1926,7 +1934,7 @@
 <span class="t">#spesial</span> {
   <span class="a">color</span>: <span class="n">purple</span>;
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c2').playgroundCode)" title="⚡ Coba Pakaikan Seragam">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c2').playgroundCode)" title="⚡ Coba Pakaikan Seragam">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2000,7 +2008,7 @@
   <span class="a">border</span>: <span class="n">2px solid black</span>; <span class="c">/* Kasih garis luar */</span>
   <span class="a">margin</span>: <span class="n">50px</span>; <span class="c">/* Jauhin dari orang lain */</span>
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c3').playgroundCode)" title="⚡ Main-main dengan Box Model">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c3').playgroundCode)" title="⚡ Main-main dengan Box Model">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2066,7 +2074,7 @@
   <span class="a">font-size</span>: <span class="n">24px</span>;
   <span class="a">text-align</span>: <span class="n">center</span>;
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c4').playgroundCode)" title="⚡ Eksperimen Gaya Font">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c4').playgroundCode)" title="⚡ Eksperimen Gaya Font">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2143,7 +2151,7 @@
   <span class="a">justify-content</span>: <span class="n">center</span>; <span class="c">/* Semua anak ke tengah! */</span>
   <span class="a">gap</span>: <span class="n">10px</span>; <span class="c">/* Jarak antar anak 10px */</span>
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c5').playgroundCode)" title="⚡ Coba Posisikan Barisan">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='c5').playgroundCode)" title="⚡ Coba Posisikan Barisan">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2186,7 +2194,7 @@
 <html>
   <body>
   <h1>Cek Otak Manusia Web!</h1>
-  <button onclick="sapaUser()" style="padding:10px 20px; font-size:16px;">Klik Buat Nyapa!</button>
+  <button type="button" onclick="sapaUser()" style="padding:10px 20px; font-size:16px;">Klik Buat Nyapa!</button>
   
   <!-- Disinilah tempat Otak (JS) berada -->
   <script>
@@ -2221,7 +2229,7 @@
   <span class="c">// Nyatet diam-diam buat programmer</span>
   <span class="k">console.log</span>(<span class="n">"JS berhasil jalan."</span>);
 <span class="t">&lt;/script&gt;</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j1').playgroundCode)" title="⚡ Buktikan Sendiri (Playground)">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j1').playgroundCode)" title="⚡ Buktikan Sendiri (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2287,7 +2295,7 @@ saldo = <span class="n">10000</span>; <span class="c">// Boleh! Sah-sah saja ber
 
 <span class="k">const</span> phi = <span class="n">3.14</span>;
 phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karena const nggak bisa diubah!</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j2').playgroundCode)" title="⚡ Uji Coba Variabel">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j2').playgroundCode)" title="⚡ Uji Coba Variabel">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2355,7 +2363,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 
 <span class="c">// AWAS TERTIPU!</span>
 <span class="k">let</span> angka = <span class="n">"10"</span>; <span class="c">// Ini String! Karena pakai kutip.</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j3').playgroundCode)" title="⚡ Mainan Tipe Data">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j3').playgroundCode)" title="⚡ Mainan Tipe Data">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2384,8 +2392,8 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 <html>
   <body>
   <h2>Panggil Sang Koki!</h2>
-  <button onclick="bikinKopi('Hitam')">Bikin Kopi Hitam</button>
-  <button onclick="bikinKopi('Susu')">Bikin Kopi Susu</button>
+  <button type="button" onclick="bikinKopi('Hitam')">Bikin Kopi Hitam</button>
+  <button type="button" onclick="bikinKopi('Susu')">Bikin Kopi Susu</button>
   
   <p id="hasil-dapur" style="font-size:24px; margin-top:20px; font-weight:bold;"></p>
 
@@ -2417,7 +2425,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 <span class="c">// Memanggil fungsinya buat kerja</span>
 <span class="k">let</span> nilaiku = <span class="t">tambahAngka</span>(10, 5);
 <span class="c">// nilaiku sekarang isinya 15</span></pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j4').playgroundCode)" title="⚡ Jadi Koki Function">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j4').playgroundCode)" title="⚡ Jadi Koki Function">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2446,8 +2454,8 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 <html>
   <body>
   <h2>Cek Kelulusan</h2>
-  <button onclick="cekNilai(90)">Dapat Nilai 90</button>
-  <button onclick="cekNilai(60)">Dapat Nilai 60</button>
+  <button type="button" onclick="cekNilai(90)">Dapat Nilai 90</button>
+  <button type="button" onclick="cekNilai(60)">Dapat Nilai 60</button>
   
   <script>
     function cekNilai(nilai) {
@@ -2479,7 +2487,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
   <span class="c">// Kalau uangnya KESIKITAN (kondisi if salah), masuk sini!</span>
   <span class="k">console.log</span>(<span class="n">"Makan cilok aja bro..."</span>);
 }</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j5').playgroundCode)" title="⚡ Tes Keputusan Otak">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j5').playgroundCode)" title="⚡ Tes Keputusan Otak">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2513,7 +2521,7 @@ phi = <span class="n">3.20</span>; <span class="c">// ERROR! Browser marah karen
 <html>
   <body>
   <h2 id="target-teks">Aku Tulisan Biasa</h2>
-  <button onclick="ubahWujud()">Mantra Ajaib!</button>
+  <button type="button" onclick="ubahWujud()">Mantra Ajaib!</button>
   
   <script>
     function ubahWujud() {
@@ -2549,7 +2557,7 @@ h1.<span class="a">innerHTML</span> = <span class="n">"Teksnya Berubah Bos!"</sp
 
 <span class="c">// Ubah bajunya / CSS (style)</span>
 h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
-  <button class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j6').playgroundCode)" title="⚡ Main Sihir DOM (Playground)">⚡ Coba</button>
+  <button type="button" class="btn-play" onclick="openPlayground(LESSONS.find(l=>l.id==='j6').playgroundCode)" title="⚡ Main Sihir DOM (Playground)">⚡ Coba</button>
 </div>`,
           pool: [
             {
@@ -2845,7 +2853,7 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
           </div>
           <div class="lcard-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
             <span class="xp-pill xp-earned">+${lesson.xp} XP</span>
-            <button class="qr-btn" style="padding:6px 10px; font-size:0.75rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); border-radius:4px; margin:0; pointer-events:none;">
+            <button type="button" class="qr-btn" style="padding:6px 10px; font-size:0.75rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); border-radius:4px; margin:0; pointer-events:none;">
               ${st.showContent ? "Tutup Materi ⬆" : "Baca Ulang 📖"}
             </button>
           </div>
@@ -2877,7 +2885,7 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
           </div>
           <div class="lcard-right" style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
             <span class="xp-pill xp-pending">+${lesson.xp} XP</span>
-            <button class="qr-btn" style="padding:6px 10px; font-size:0.75rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); border-radius:4px; margin:0; pointer-events:none;">
+            <button type="button" class="qr-btn" style="padding:6px 10px; font-size:0.75rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); border-radius:4px; margin:0; pointer-events:none;">
               ${st.showContent ? "Tutup Materi ⬆" : "Buka Materi 📖"}
             </button>
           </div>
@@ -2888,7 +2896,7 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         <div class="lcard-body">
           <div class="lc-wrap">
             ${lesson.content}
-            <button class="start-quiz-btn ${sqClass}" onclick="startQuiz('${lesson.id}')">
+            <button type="button" class="start-quiz-btn ${sqClass}" onclick="startQuiz('${lesson.id}')">
               📝 Saya Sudah Mengerti! Mulai Quiz →
             </button>
           </div>
@@ -2937,7 +2945,7 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         ${q.opts
           .map(
             (opt, oi) => `
-          <button class="q-opt" id="qopt-${lessonId}-${qi}-${oi}"
+          <button type="button" class="q-opt" id="qopt-${lessonId}-${qi}-${oi}"
             onclick="answerQ('${lessonId}', ${qi}, ${oi})">
             ${escapeHtml(opt)}
           </button>
@@ -2959,7 +2967,7 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         </div>
       </div>
       ${questionsHtml}
-      <button class="quiz-submit-btn" id="qsubmit-${lessonId}"
+      <button type="button" class="quiz-submit-btn" id="qsubmit-${lessonId}"
         onclick="submitQuiz('${lessonId}')" disabled>
         Cek Jawaban →
       </button>
@@ -2975,11 +2983,11 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         const emoji = sec === "html" ? "🏗️" : sec === "css" ? "🎨" : "⚡";
 
         let nextBtn = next
-          ? `<button class="sc-btn" style="background:${getSectionColor(nextSec)};color:#111"
+          ? `<button type="button" class="sc-btn" style="background:${getSectionColor(nextSec)};color:#111"
         onclick="showSection('${nextSec}')">
         Lanjut ke ${next}! →
       </button>`
-          : `<button class="sc-btn" style="background:var(--green);color:#111">
+          : `<button type="button" class="sc-btn" style="background:var(--green);color:#111">
         🏆 SELESAI! Kamu sudah jago Web Dev!
       </button>`;
 
@@ -3174,10 +3182,10 @@ h1.<span class="a">style</span>.color = <span class="n">"blue"</span>;</pre>
         <div class="qr-label">Jawaban Benar</div>
         <div class="qr-msg" style="color:${benar === 0 ? "var(--red)" : "var(--js)"}">${msg}</div>
         <div class="qr-actions">
-          <button class="qr-btn qrb-study" onclick="studyAgain('${lessonId}')">
+          <button type="button" class="qr-btn qrb-study" onclick="studyAgain('${lessonId}')">
             📖 Pelajari Lagi
           </button>
-          <button class="qr-btn qrb-retry" onclick="retryQuiz('${lessonId}')">
+          <button type="button" class="qr-btn qrb-retry" onclick="retryQuiz('${lessonId}')">
             🔄 Quiz Lagi (soal baru)
           </button>
         </div>`;
